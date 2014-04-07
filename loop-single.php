@@ -9,45 +9,126 @@
 ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<?php
+		if ( is_singular('otros') ) { 
+	?>
+	<?php
+		} else {
+	?>
+	<!-- Contenido de la pagina -->
+	<div class="row grid">
 
-		<nav>
-			<?php previous_post_link( '%link', '' . _x( '&larr;', 'Previous post link', 'starkers' ) . ' %title' ); ?>
-			<?php next_post_link( '%link', '%title ' . _x( '&rarr;', 'Next post link', 'starkers' ) . '' ); ?>
-		</nav>
+	<section class="col_12" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div id="t-categoria">Vehiculos</div><br>
+
+		<!--Banner superior -->
+		<div id="owl-banner-alt" class="owl-carousel owl-theme center">
+			<?php  query_posts(array('post_type' => 'banner', 'category_name' => 'b-alt', 'showposts' => 6));
+			if (have_posts()) : while (have_posts()) : the_post();
+			  $thumb = get_post_thumbnail_id();
+			  $img_url = wp_get_attachment_url( $thumb,'full' );
+			?>
+		    <div class="item">
+		    	<a href="<?php echo get('enlace'); ?>"><img src="<?php echo $img_url ?>"></a>
+		    </div>
+		  <?php 
+		    endwhile;
+		    endif;
+		    wp_reset_query();
+		  ?>
+		</div>
+		<!-- Fin del banner superior -->
 		
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			
-			<header>
-				<h1><?php the_title(); ?></h1>
+		<article>
+			<div id="galeria-vehiculo" class="col_5">
+				<?php echo get('galeria'); ?>
+			</div>
 
-				<?php starkers_posted_on(); ?>
-			</header>
-
-			<?php the_content(); ?>
-					
-			<?php wp_link_pages( array( 'before' => '<nav>' . __( 'Pages:', 'starkers' ), 'after' => '</nav>' ) ); ?>
-		
-			<?php if ( get_the_author_meta( 'description' ) ) : // If a user has filled out their description, show a bio on their entries  ?>
-				<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'starkers_author_bio_avatar_size', 60 ) ); ?>
-				<h2><?php printf( esc_attr__( 'About %s', 'starkers' ), get_the_author() ); ?></h2>
-				<?php the_author_meta( 'description' ); ?>
-					<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-						<?php printf( __( 'View all posts by %s &rarr;', 'starkers' ), get_the_author() ); ?>
-					</a>
-			<?php endif; ?>
-			
-			<footer>
-				<?php starkers_posted_in(); ?>
-				<?php edit_post_link( __( 'Edit', 'starkers' ), '', '' ); ?>
-			</footer>
-				
+			<div class="col_7">
+				<div class="titulo"> 
+					<?php the_title(); ?>
+				</div>
+				<div class="contenido">
+					<?php the_content(); ?>
+					<div class="tab"></div>
+					<ul class="tabs left">
+						<li><a href="#tabr1">Especificaciones</a></li>
+						<li><a href="#tabr2">Exterior</a></li>
+						<li><a href="#tabr3">Interior</a></li>
+						<li><a href="#tabr4">Cotízalo</a></li>
+					</ul>
+					<div id="tabr1" class="tab-content">
+						<?php echo get('tab1'); ?>
+					</div>
+					<div id="tabr2" class="tab-content">
+						<?php echo get('tab2'); ?>
+					</div>
+					<div id="tabr3" class="tab-content">
+						<?php echo get('tab3'); ?>
+					</div>
+					<div id="tabr4" class="tab-content">
+						<?php echo do_shortcode('[contact-form-7 id="188" title="Cotizar"]'); ?>
+					</div>
+				</div>
+			</div>
 		</article>
 
-		<nav>
-			<?php previous_post_link( '%link', '' . _x( '&larr;', 'Previous post link', 'starkers' ) . ' %title' ); ?>
-			<?php next_post_link( '%link', '%title ' . _x( '&rarr;', 'Next post link', 'starkers' ) . '' ); ?>
-		</nav>
+		<!-- Carrousel de productos relacionados -->
+		<div class="col_12">
+			<div class="titulo">
+				Productos Relacionados
+			</div>
+			<div id="owl-relacionados">
+			<!-- Obtiene la categoria actual para buscar y mostrar productos iguales -->
+				<?php 
+	                global $post;
+	                $args = array( 'taxonomy' => 'product_cat',);
+	                $terms = wp_get_post_terms($post->ID,'product_cat', $args);
 
-		<?php comments_template( '', true ); ?>
+	                $count = count($terms); 
+	                if ($count > 0) {
 
+	                foreach ($terms as $term) {
+	                    $categoria = $term->name;
+	                }
+	            }
+	            ?>
+
+
+			<!-- Compara la categoria actual y las categorias existentes y muestra los proximos 8 vehiculos -->
+				<?php  query_posts(array('category' => '"'.$categoria.'"', 'showposts' => 8));
+				if (have_posts()) : while (have_posts()) : the_post();
+				  $thumb = get_post_thumbnail_id();
+				  $img_url = wp_get_attachment_url( $thumb,'full' );
+				?>
+				<div class="item">
+			    	<div class="producto">
+			    		<div id="i-producto"> <!--Imagen del producto-->
+							<a href="<?php the_permalink(); ?>"><img src="<?php echo $img_url ?>" /></a>
+			    		</div>
+			    		<div id="t-producto"> <!--Titulo del producto-->
+			    			<?php the_title(); ?>
+			    		</div>
+			    	</div>
+				</div>
+				<?php 
+				endwhile;
+				endif;
+				wp_reset_query();
+				?>
+			</div>		
+		</div>
+		<!-- Fin del carrousel de productos relacionados -->
+	</section>
+
+	<div class="clearfix"></div>
+	</div>
+	<!-- /Contenido de la pagina -->	
+	<?php
+		}
+	?>
 <?php endwhile; // end of the loop. ?>
+
+
+
+	

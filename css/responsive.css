@@ -1,0 +1,134 @@
+/* Resposive */
+/* ----------------------------------------- */
+
+/*
+* Webusiness Responsive Stylesheet
+*
+* v1.0
+* 2014
+* 
+* Control Automotriz
+*/
+/*	Despliega en bloques centrados los elementos del sitio web a partir de una resolucion menor o igual a 480px
+	resolucion estandar para Smartphones de gama alta y media.
+*/
+/*
+Header 
+*/
+body > header > div.row.grid > div.col_3.left.column {
+	text-align: center;/*Centra el logotipo*/
+}
+.perfil {
+text-align: center;/*Centra la carretilla de compras y el enlace de login */
+}
+.buscar {
+float: none;
+text-align: center;/*Elimina la propiedad flotante y centra la caja de busqueda*/
+}
+.navegacion {
+height: auto;
+width: 100%;
+background: none;
+}
+.menu ul{
+	background: none;
+}
+.menu > li{
+	background: none;
+}
+
+.menu li{
+	margin:4px 0;
+	padding:0;
+	list-style-type:none;
+	display:inline-block;
+	*display:inline;
+	position:relative;
+	zoom:1;
+	line-height:inherit;
+	top:0;
+	left:0;
+	font-size:16px;
+}
+/*--------------flechita en el menu cuando hay submenus-------------------*/
+.menu li.has-menu a{
+	padding-right:25px;
+}
+.menu li.has-menu span.arrow{
+	border-style:solid;
+	border-width:5px;
+	display:block;
+	position:absolute;
+	top:50%;
+	right:5px;
+	font-size:0;
+	line-height:0;
+	height:0;
+	width:0;
+}
+.menu li li.has-menu span.arrow{
+	margin-top:-4px;
+}
+/*--------------Menu-------------------*/
+.menu li a{
+	padding: 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 0.9em;
+	color: #000;
+	background: rgb(247,222,53); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(247,222,53,1) 0%, rgba(244,212,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,222,53,1)), color-stop(100%,rgba(244,212,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(247,222,53,1) 0%,rgba(244,212,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(247,222,53,1) 0%,rgba(244,212,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(247,222,53,1) 0%,rgba(244,212,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(247,222,53,1) 0%,rgba(244,212,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7de35', endColorstr='#f4d400',GradientType=0 ); /* IE6-9 */
+	opacity: 0.9;
+}
+.menu li.current>a,
+.menu li.current>a:hover,
+.menu li.current.hover>a{
+	background: rgb(255,208,0); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,208,0,1) 0%, rgba(168,126,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,208,0,1)), color-stop(100%,rgba(168,126,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,208,0,1) 0%,rgba(168,126,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,208,0,1) 0%,rgba(168,126,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,208,0,1) 0%,rgba(168,126,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,208,0,1) 0%,rgba(168,126,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd000', endColorstr='#a87e00',GradientType=0 ); /* IE6-9 */
+	color:#000;
+	cursor: pointer;
+}
+.menu li a:hover,
+.menu li.hover>a{
+	background: rgb(255,208,0); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,208,0,1) 0%, rgba(196,150,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,208,0,1)), color-stop(100%,rgba(196,150,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,208,0,1) 0%,rgba(196,150,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,208,0,1) 0%,rgba(196,150,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,208,0,1) 0%,rgba(196,150,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,208,0,1) 0%,rgba(196,150,0,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd000', endColorstr='#c49600',GradientType=0 ); /* IE6-9 */
+	color:#000;
+	cursor: pointer;
+}
+.menu ul{/* sub menus */
+	margin-top: -4px;
+}
+
+.menu ul.sub-menu li{
+	width: 300px;
+	margin: 4px;
+}
+.menu li.has-menu span.arrow{ /* arrow down */
+	border-color-top:#ccc;
+	border-color:#ccc transparent transparent transparent;
+}
+.con-banner{ /*Elimina el banner lateral de las paginas*/
+	display: none;
+}
+/* Formulario de contacto */
+.wpcf7 textarea{
+	width: 95%;
+}

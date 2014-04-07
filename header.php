@@ -37,6 +37,8 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/kickstart.css" media="all" /> <!-- KICKSTART -->
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/owl.carousel.css">
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/owl.theme.css">
 <!-- /CSS -->
 
 <?php wp_head(); ?>
@@ -45,10 +47,14 @@
 <script src="<?php bloginfo('template_directory'); ?>/js/modernizr-1.6.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/kickstart.js"></script> <!-- KICKSTART -->
+<script src="<?php bloginfo('template_directory'); ?>/js/owl.carousel.js"></script>
 <!-- /Javascripts -->
+
+<!-- CSS media query -->
+<link rel="stylesheet" media="(max-width: 480px)" href="<?php bloginfo('template_directory'); ?>/css/responsive.css" />
  
 </head>
- 
+
 <body <?php body_class(); ?>>
  
     <header>
@@ -80,28 +86,18 @@
         <div class="navegacion">
             <div class="row grid">
                 <div class="col_12">
-                    <ul class="menu">
-                        <li class="current"><a href="">Item 1</a></li>
-                        <li><a href="">Item 2</a></li>
-                        <li><a href="">Item 3</a>
-                            <ul>
-                            <li><a href="">Sub Item</a></li>
-                            <li><a href="">Sub Item</a>
-                                <ul>
-                                <li><a href="">Sub Item</a></li>
-                                <li><a href="">Sub Item</a></li>
-                                <li><a href="">Sub Item</a></li>
-                                <li><a href="">Sub Item</a></li>
-                                </ul>
-                            </li>
-                            <li class="divider"><a href="">li.divider</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Item 4</a></li>
-                    </ul>
+                    <nav>
+                        <?php wp_nav_menu( 
+                        array( 
+                        'container' => 'nav', 
+                        'fallback_cb' => 
+                        'starkers_menu',
+                        'menu_class' => 'menu',
+                        'theme_location' => 'primary'
+                        ) ); ?>
+                    </nav>
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
-
     </header>

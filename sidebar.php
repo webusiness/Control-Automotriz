@@ -7,49 +7,31 @@
  * @since Starkers HTML5 3.0
  */
 ?>
-
-	<aside>
-		<ul>
-
-<?php
-	/* When we call the dynamic_sidebar() function, it'll spit out
-	 * the widgets for that widget area. If it instead returns false,
-	 * then the sidebar simply doesn't exist, so we'll hard-code in
-	 * some default sidebar stuff just in case.
-	 */
-	if ( ! dynamic_sidebar( 'primary-widget-area' ) ) : ?>
-	
-			<li>
-				<?php get_search_form(); ?>
-			</li>
-
-			<li>
-				<h3><?php _e( 'Archives', 'starkers' ); ?></h3>
-				<ul>
-					<?php wp_get_archives( 'type=monthly' ); ?>
-				</ul>
-			</li>
-
-			<li>
-				<h3><?php _e( 'Meta', 'starkers' ); ?></h3>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</li>
-
-		<?php endif; // end primary widget area ?>
-		</ul>
-
-<?php
-	// A second sidebar for widgets, just because.
-	if ( is_active_sidebar( 'secondary-widget-area' ) ) : ?>
-
-			<ul>
-				<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
-			</ul>
-
-<?php endif; ?>
-	
-	</aside>
+<!--Contenedor del banner-->
+<div class="con-banner">
+	<div id="owl-banner" class="owl-carousel owl-theme">
+		<?php  query_posts(array('post_type' => 'banner', 'category_name' => 'b-principal', 'showposts' => 6));
+		if (have_posts()) : while (have_posts()) : the_post();
+		  $thumb = get_post_thumbnail_id();
+		  $img_url = wp_get_attachment_url( $thumb,'full' );
+		?>
+	    <div class="item">
+	    	<a href="<?php echo get('enlace'); ?>"><img src="<?php echo $img_url ?>"></a>
+	    </div>
+	  <?php 
+	    endwhile;
+	    endif;
+	    wp_reset_query();
+	  ?>
+	</div>
+</div>
+<!--Contenedor del formulario de rss-->
+<div class="con-form">
+	<br>
+	<form action="" autocomplete="on" metod="post">
+		<div class="f-titulo"> Formulario de suscripción</div>
+		<input id="f-nom" type="text" placeholder="Nombre" /><br>
+		<input id="f-mail" type="text" placeholder="E-mail" /><br>
+		<button type="submit" id="sub">Suscribirse</button>
+	</form>
+</div>

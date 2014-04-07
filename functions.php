@@ -38,7 +38,7 @@ function starkers_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'starkers' ),
+		'primary' => __( 'Menu de navegacion', 'starkers' ),
 	) );
 }
 endif;
@@ -283,3 +283,145 @@ function starkers_posted_in() {
 	);
 }
 endif;
+#Aqui creo una funcion que crea un Custom Post para organizar los Banners
+function custom_post_type_creator_banners() {
+	$labels = array(
+	  'name'               => _x( 'Banners', 'Post Type General Name', 'text_domain' ),
+	  'singular_name'      => _x( 'Banner', 'Post Type Singular Name', 'text_domain' ),
+	  'menu_name'          => __( 'Banners', 'text_domain' ),
+	  'parent_item_colon'  => __( 'Banner principal', 'text_domain' ),
+	  'all_items'          => __( 'Banners', 'text_domain' ),
+	  'view_item'          => __( 'Ver Banners', 'text_domain' ),
+	  'add_new_item'       => __( 'Añadir Banner Nuevo', 'text_domain' ),
+	  'add_new'            => __( 'Añadir', 'text_domain' ),
+	  'edit_item'          => __( 'Editar Banner', 'text_domain' ),
+	  'update_item'        => __( 'Actualizar', 'text_domain' ),
+	  'search_items'       => __( 'Buscar Banner', 'text_domain' ),
+	  'not_found'          => __( 'Banners no encontradas', 'text_domain' ),
+	  'not_found_in_trash' => __( 'Banners no encontradas en Papelera', 'text_domain' ),
+	  );
+	$rewrite = array(
+	  'slug'                => 'banners',
+	  'with_front'          => true,
+	  'pages'               => true,
+	  'feeds'               => true,
+	  );
+	$args = array(
+	  'label'               => __( 'Banners', 'text_domain' ),
+	  'description'         => __( 'Información de Banners', 'text_domain' ),
+	  'labels'              => $labels,
+	  'supports'            => array( 'title', 'editor', 'comments', 'thumbnail'),
+	  'taxonomies'          => array( 'category', 'post_tag' ),
+	  'hierarchical'        => false,
+	  'public'              => true,
+	  'show_ui'             => true,
+	  'show_in_menu'        => true,
+	  'show_in_nav_menus'   => true,
+	  'show_in_admin_bar'   => true,
+	  'menu_position'       => 5,
+  	  'menu_icon'           => site_url().'/wp-content/themes/Control%20Automotriz/images/slider-icon.png',
+	  'can_export'          => true,
+	  'has_archive'         => 'Banners',
+	  'exclude_from_search' => false,
+	  'query_var'           => 'Banners',
+	  'rewrite'             => $rewrite,
+	  'capability_type'     => 'post',
+	  );
+	register_post_type('banner', $args);
+	}
+	add_action('init', 'custom_post_type_creator_banners', 0);
+
+#Aqui creo una funcion que crea un Custom Post para organizar los Slides
+function custom_post_type_creator() {
+$labels = array(
+  'name'               => _x( 'Slides', 'Post Type General Name', 'text_domain' ),
+  'singular_name'      => _x( 'Slide', 'Post Type Singular Name', 'text_domain' ),
+  'menu_name'          => __( 'Slides', 'text_domain' ),
+  'parent_item_colon'  => __( 'Slide principal', 'text_domain' ),
+  'all_items'          => __( 'Slides', 'text_domain' ),
+  'view_item'          => __( 'Ver Slides', 'text_domain' ),
+  'add_new_item'       => __( 'Añadir Slide Nuevo', 'text_domain' ),
+  'add_new'            => __( 'Añadir', 'text_domain' ),
+  'edit_item'          => __( 'Editar Slides', 'text_domain' ),
+  'update_item'        => __( 'Actualizar', 'text_domain' ),
+  'search_items'       => __( 'Buscar Slides', 'text_domain' ),
+  'not_found'          => __( 'Slides no encontrados', 'text_domain' ),
+  'not_found_in_trash' => __( 'Slides no encontrados en Papelera', 'text_domain' ),
+  );
+$rewrite = array(
+  'slug'                => 'slide',
+  'with_front'          => true,
+  'pages'               => true,
+  'feeds'               => true,
+  );
+$args = array(
+  'label'               => __( 'slide', 'text_domain' ),
+  'description'         => __( 'Información de Slides', 'text_domain' ),
+  'labels'              => $labels,
+  'supports'            => array( 'title', 'editor', 'comments', 'thumbnail'),
+  'taxonomies'          => array( 'category', 'post_tag' ),
+  'hierarchical'        => false,
+  'public'              => true,
+  'show_ui'             => true,
+  'show_in_menu'        => true,
+  'show_in_nav_menus'   => true,
+  'show_in_admin_bar'   => true,
+  'menu_position'       => 5,
+  'menu_icon'           => site_url().'/wp-content/themes/Control%20Automotriz/images/slider-icon.png',
+  'can_export'          => true,
+  'has_archive'         => 'slides',
+  'exclude_from_search' => false,
+  'query_var'           => 'slide',
+  'rewrite'             => $rewrite,
+  'capability_type'     => 'post',
+  );
+register_post_type('slide', $args);
+}
+add_action('init', 'custom_post_type_creator', 0);
+
+function the_breadcrumb() {
+	if (!is_home()) {
+		echo '<a href="';
+		echo home_url();
+		echo '">';
+		echo '<i class="icon-home icon-2x"></i>';
+		echo '</a> <img src="http://construyendoideas.com/controlautomotriz/wp-content/themes/Control%20Automotriz/images/flecha-breadcrumb.png">';
+		if (is_category() || is_single()) {
+			the_category('title_li=');
+			if (is_single()) {
+				echo ' <img src="http://construyendoideas.com/controlautomotriz/wp-content/themes/Control%20Automotriz/images/flecha-breadcrumb.png"> ';
+				the_title();  echo ' <img src="http://construyendoideas.com/controlautomotriz/wp-content/themes/Control%20Automotriz/images/flecha-breadcrumb.png"> ';
+			}
+		} elseif (is_page()) {
+			echo the_title(); echo ' <img src="http://construyendoideas.com/controlautomotriz/wp-content/themes/Control%20Automotriz/images/flecha-breadcrumb.png"> ';
+		}
+	}
+}
+function pagination()
+{
+    global $wp_query;
+    $big = 999999999;
+    echo paginate_links(array(
+        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'prev_text'    => __('Anterior'),
+        'next_text'    => __('Siguiente'),
+    ));
+}
+function string_limit_words($string, $word_limit)
+{
+  $words = explode(' ', $string, ($word_limit + 1));
+  if(count($words) > $word_limit) {
+  array_pop($words);
+  //add a ... at last article when more than limit word count
+  echo implode(' ', $words)."..."; } else {
+  //otherwise
+  echo implode(' ', $words); }
+}
+
+/* <?php
+  $excerpt = get_the_excerpt();
+  echo string_limit_words($excerpt,25);  El número 25 representa el número de palabras que se desea mostrar
+?>...  */
