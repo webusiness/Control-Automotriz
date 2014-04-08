@@ -115,6 +115,9 @@ margin-top: -8px;
 	font-family: "Myriad Pro";
 	color: #8D8D8D;
 	font-size: 24px;
+	position: relative;
+	top: 20px;
+	margin-left: 8px;
 }
 .owl-theme .owl-controls .owl-buttons div {
   padding: 5px 9px;
@@ -181,6 +184,7 @@ margin-top: -8px;
 	min-height: 100px;
 	border-top: 1px solid #E0E0E0;
 	border-bottom: 1px solid #E0E0E0;
+	overflow: hidden;
 }
 /*Paginas*/
 .contenido{
@@ -279,7 +283,7 @@ overflow: hidden;
 	box-shadow: none;
 	background: white;
 	border: 1px solid #E0E0E0;
-	width: 95%;
+	/* width: 95%; */
 }
 .wpcf7 select{
 	border-radius: 0px;
@@ -368,6 +372,9 @@ overflow: hidden;
 	border-radius: 5px;
 	background: #FFF;
 	border: 2px solid #E8E8E8;
+	max-height: 320px;
+	overflow: hidden;
+	min-height: 320px;
 /*
 Responsive:
 width: 250px;
@@ -471,3 +478,89 @@ margin-left: 20%;
 #fcotizar {
 	width: 57%;
 }
+/* Tienda / Categorias / portada
+	Productos
+*/
+#p-imagen {
+	padding: 5px;
+	max-height: 230px;
+	min-height: 230px;
+	max-width: 238px;
+	overflow: hidden;
+	text-align: center;
+}
+#p-titulo {
+	padding: 5px;
+	font-size: 14px;
+	color: #3E3D3B;
+	font-family: "Myriad Pro";
+}
+#p-des{
+	padding: 5px;
+	font-size: 12px;
+	color: #000;
+	font-family: "Myriad Pro";
+}
+#p-presio{
+	font-family: "Myriad Pro";
+	text-align: right;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+#p-img {
+	max-height: 220px;
+}
+#owl-demo .item{
+  display: block;
+  padding: 30px 0px;
+  margin: 5px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+/* Productos Relacionados */
+.productor{
+	border-radius: 5px;
+	background: #FFF;
+	border: 2px solid #E8E8E8;
+	max-height: 320px;
+	overflow: hidden;
+	min-height: 260px;
+/*
+Responsive:
+width: 250px;
+text-align: center;
+margin-left: 20%;
+*/
+}
+.vehiculor{
+	border-radius: 5px;
+	background: #FFF;
+	border: 2px solid #E8E8E8;
+	max-height: 320px;
+	overflow: hidden;
+	min-height: 220px;
+/*
+Responsive:
+width: 250px;
+text-align: center;
+margin-left: 20%;
+*/
+}
+.producto-tienda{
+	border-radius: 5px;
+	background: #FFF;
+	border: 2px solid #E8E8E8;
+	max-height: 320px;
+	overflow: hidden;
+/*
+Responsive:
+width: 250px;
+text-align: center;
+margin-left: 20%;
+*/
+}
+/*------------------------------       WOOCOMMERCE       ------------------------------*/
+/* Pagina del producto */

@@ -72,7 +72,7 @@ get_header(); ?>
         ?>
 	    
 	    <div class="col_4">
-	    	<div class="producto">
+	    	<div class="producto-tienda">
 	    		<div id="i-producto"> <!--Imagen del producto-->
 					<a href="<?php the_permalink(); ?>"><img src="<?php echo $img_url ?>" /></a>
 	    		</div>

@@ -102,7 +102,7 @@
 				  $img_url = wp_get_attachment_url( $thumb,'full' );
 				?>
 				<div class="item">
-			    	<div class="producto">
+			    	<div class="vehiculor">
 			    		<div id="i-producto"> <!--Imagen del producto-->
 							<a href="<?php the_permalink(); ?>"><img src="<?php echo $img_url ?>" /></a>
 			    		</div>

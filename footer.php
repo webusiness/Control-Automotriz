@@ -26,7 +26,7 @@
 				<div><img src="<?php bloginfo('template_directory'); ?>/images/tw.png" width="20px" height="20px"> @conrtolautomotriz</div>
 			</div>
 			<div class="col_4">
-				<span>Powered By:</span> Web Bussines
+				<span>Powered By:</span> Webusiness
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -136,6 +136,19 @@
 			  //Parameter elem pointing to $("#owl-demo")
 			  random(elem);
 			}
+		});
+		$("#owl-demo").owlCarousel({
+		    navigation: true,
+		    items : 4,
+		    pagination:false,
+		    navigationText: [
+		      "<i class='icon-chevron-left icon-white'></i>",
+		      "<i class='icon-chevron-right icon-white'></i>"
+		      ],
+		    beforeInit : function(elem){
+		      //Parameter elem pointing to $("#owl-demo")
+		      random(elem);
+		    }
 		});
 	});
 </script>
