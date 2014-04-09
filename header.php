@@ -48,6 +48,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/kickstart.js"></script> <!-- KICKSTART -->
 <script src="<?php bloginfo('template_directory'); ?>/js/owl.carousel.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/galleria-1.3.5.js"></script>
 <!-- /Javascripts -->
 
 <!-- CSS media query -->

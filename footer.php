@@ -150,8 +150,16 @@
 		      random(elem);
 		    }
 		});
+		// Load the classic theme
+		Galleria.loadTheme('http://construyendoideas.com/controlautomotriz/wp-content/themes/Control%20Automotriz/js/galleria.classic.js');
+
+
 	});
 </script>
+
+
+
+
 
 </body>
 </html>

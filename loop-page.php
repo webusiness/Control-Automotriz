@@ -27,6 +27,7 @@
       <div class="clearfix"></div>
     </div>
   </div>
+  <!--/Cabecera de la pagina-->
 
 
   

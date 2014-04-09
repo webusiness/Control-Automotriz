@@ -76,7 +76,7 @@
 		<!-- Carrousel de productos relacionados -->
 		<div class="col_12">
 			<div class="titulo">
-				Productos Relacionados
+				Vehiculos Relacionados
 			</div>
 			<div id="owl-relacionados">
 			<!-- Obtiene la categoria actual para buscar y mostrar productos iguales -->

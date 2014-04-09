@@ -186,6 +186,10 @@ margin-top: -8px;
 	border-bottom: 1px solid #E0E0E0;
 	overflow: hidden;
 }
+/* Galeria */
+#galleria{
+	height:320px
+}
 /*Paginas*/
 .contenido{
 	font-family: "Myriad Pro";
@@ -430,6 +434,7 @@ margin-left: 20%;
 #owl-banner-alt {
 	max-height: 80px;
 	overflow: hidden;
+	margin-bottom: 10px;
 }
 #owl-banner-comercial {
 	max-width: 140px;
@@ -520,6 +525,14 @@ margin-left: 20%;
   border-radius: 3px;
   text-align: center;
 }
+.marca{
+	font-size: 15px;
+	color: #000;
+	font-family: "Myriad Pro";
+}
+.marca span{
+	font-weight: 900;
+}
 /* Productos Relacionados */
 .productor{
 	border-radius: 5px;
@@ -563,4 +576,189 @@ margin-left: 20%;
 */
 }
 /*------------------------------       WOOCOMMERCE       ------------------------------*/
-/* Pagina del producto */
+.woocommerce-breadcrumb{
+	display: none; /* Oculta el breadcrumb */
+}
+.woocommerce #content div.product .product_title, 
+.woocommerce div.product .product_title, 
+.woocommerce-page #content div.product 
+.product_title, 
+.woocommerce-page div.product 
+.product_title {
+	display: none; /* Oculta el titulo del producto */
+}
+.posted_in{
+	font-family: "Myriad Pro";
+	margin-left: 5px;
+	color: #000;
+	font-size: 15px;
+}
+.posted_in a{
+	color: #000;
+}
+.woocommerce div.product form.cart .button, 
+.woocommerce #content div.product form.cart .button, 
+.woocommerce-page div.product form.cart .button, 
+.woocommerce-page #content div.product form.cart .button,
+.price,
+.sku_wrapper {
+	font-family: "Myriad Pro"; /* Tipo de letra para los botones */
+	font-weight: normal;
+}
+.woocommerce .quantity input.qty, 
+.woocommerce #content .quantity input.qty, 
+.woocommerce-page .quantity input.qty, 
+.woocommerce-page #content .quantity input.qty {
+	width: 60px !important; /* Reemplaza y asigna un nuevo ancho a la caja de añadir o quitar productos */
+}
+.woocommerce .quantity .plus, 
+.woocommerce #content .quantity .plus, 
+.woocommerce-page .quantity .plus, 
+.woocommerce-page #content .quantity .plus{
+	height: 100% !important; /* Reemplaza y asigna un nuevo alto al boton + */
+}
+.woocommerce .quantity .minus, 
+.woocommerce #content .quantity .minus, 
+.woocommerce-page .quantity .minus, 
+.woocommerce-page #content .quantity .minus {
+	height: 100% !important; /* Reemplaza y asigna un nuevo alto al boton - */
+	margin-left: 66% !important; /* Obliga a posicionarce al lado derecho de la caja - */
+}
+.woocommerce .related, 
+.woocommerce .upsells.products, 
+.woocommerce-page .related, 
+.woocommerce-page .upsells.products, 
+.related .products{
+	display: none; /* Oculta los productos relacionados nativos de woocomerce */
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs, 
+.woocommerce #content div.product .woocommerce-tabs ul.tabs, 
+.woocommerce-page div.product .woocommerce-tabs ul.tabs, 
+.woocommerce-page #content div.product .woocommerce-tabs ul.tabs {
+	display: none; /* Oculta las Tabs de "Descripcion" y "Comentarios" del single-product.php */
+}
+.woocommerce div.product .woocommerce-tabs .panel, 
+.woocommerce #content div.product .woocommerce-tabs .panel,
+.woocommerce-page div.product .woocommerce-tabs .panel, 
+.woocommerce-page #content div.product .woocommerce-tabs .panel {
+display: none !important;
+}
+.page-title, .woocommerce-result-count {
+	font-family: "Myriad Pro";
+	color: #4A4A4A;
+}
+.page-numbers, 
+.first,
+.woocommerce nav.woocommerce-pagination ul li, 
+.woocommerce #content nav.woocommerce-pagination ul li, 
+.woocommerce-page nav.woocommerce-pagination ul li, 
+.woocommerce-page #content nav.woocommerce-pagination ul li{
+	border: none !important;
+	border-right:none !important;
+}
+.page-numbers a{
+	color: #000;
+}
+.woocommerce-page nav.woocommerce-pagination ul li span.current {
+	color: #000 !important;
+	text-decoration: underline;
+}
+.woocommerce-ordering{
+	display: none; /* Oculta el select para ordenar por precio */
+}
+.woocommerce-message{
+	display: none;
+}
+/* Carrito de cotizacion */
+.woocommerce table.cart img,
+.woocommerce #content table.cart img, 
+.woocommerce-page table.cart img, 
+.woocommerce-page #content table.cart img {
+	width: 96px !important; /* Tamaño de la imagen de cotizacion */
+}
+.woocommerce table.cart a.remove, 
+.woocommerce #content table.cart a.remove, 
+.woocommerce-page table.cart a.remove, 
+.woocommerce-page #content table.cart a.remove {
+	color: rgb(109, 109, 109) !important;
+}
+.woocommerce table.cart a.remove: hover, 
+.woocommerce #content table.cart a.remove: hover, 
+.woocommerce-page table.cart a.remove: hover, 
+.woocommerce-page #content table.cart a.remove: hover {
+}
+.woocommerce #content table.cart a.remove:hover,
+.woocommerce table.cart a.remove:hover,
+.woocommerce-page #content table.cart a.remove:hover,
+.woocommerce-page table.cart a.remove:hover{
+	background: none !important;
+	color: rgb(0, 0, 0) !important;
+}
+.product-name a{
+	color: #000;
+	font-family: "Myriad Pro"; /* Tipo de letra para los botones */
+	font-weight: normal;
+}
+.woocommerce table.cart td.actions .coupon .input-text, 
+.woocommerce #content table.cart td.actions .coupon .input-text, 
+.woocommerce-page table.cart td.actions .coupon .input-text, 
+.woocommerce-page #content table.cart td.actions .coupon .input-text{
+	width: 125px;
+}
+form.shipping_calculator{
+	display: none;
+}
+.input-text {
+border-radius: 0px;
+margin: 5px auto;
+box-shadow: none;
+background: white;
+border: 1px solid #E0E0E0;
+/* width: 95%; */
+}
+#ship-to-different-address {
+	display: none;
+}
+.woocommerce .checkout .col-2 .notes, 
+.woocommerce-page .checkout .col-2 .notes{
+	margin-top: 60px;
+}
+.woocommerce .woocommerce-info, 
+.woocommerce-page 
+.woocommerce-info{
+	border-top: 3px solid #ddc408 !important;
+}
+.woocommerce .woocommerce-info:before, 
+.woocommerce-page 
+.woocommerce-info:before{
+	background-color: #ddc408 !important;
+}
+.woocommerce-info a{
+	color: #000;
+}
+.woocommerce form .form-row select, 
+.woocommerce-page form .form-row select,
+#billing_country
+#billing_country_chosen{
+	border-radius: 0px;
+	margin: 5px auto;
+	box-shadow: none;
+	background: white;
+	border: 1px solid #E0E0E0;
+}
+dl.customer_details{
+	display: none;
+}
+.woocommerce .col2-set,
+.woocommerce-page .col2-set {
+	display: none;
+}
+#link-alt > a {
+	color: #000;
+}
+.woocommerce .quantity input.qty, 
+.woocommerce #content .quantity input.qty, 
+.woocommerce-page .quantity input.qty, 
+.woocommerce-page #content .quantity input.qty{
+	margin: 0px;
+}
